@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juan Dela Cruz | BSIT Developer Portfolio</title>
+  <meta name="description" content="BSIT student and aspiring full-stack developer portfolio." />
+
+  <!--
+    ============================================================
+    HOW TO CUSTOMIZE THIS PORTFOLIO (VS Code quick guide)
+    ============================================================
+    1. Press Ctrl+Shift+F (Find in Files) and search for "EDIT:" 
+       to jump to every spot you should personalize.
+    2. Folder structure (create the "assets" folder yourself):
+         portfolio/
+         ├── index.html
+         ├── style.css
+         ├── script.js
+         └── assets/
+             ├── profile.jpg      <- your photo (square, ~600x600)
+             ├── resume.pdf       <- your resume
+             └── projects/
+                 ├── project-1.jpg  <- project screenshots (16:9, ~1280x720)
+                 └── ...
+    3. Install the "Live Server" extension in VS Code, then right-click
+       index.html -> "Open with Live Server" for auto-reload while editing.
+    ============================================================
+  -->
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Icons (Font Awesome) + Scroll animations (AOS) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Decorative background layers -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar glass" id="navbar">
+    <!-- EDIT: replace "JD" with your initials -->
+    <a href="#home" class="logo" aria-label="Home">
+      <span class="logo-bracket">&lt;</span>JD<span class="logo-bracket">/&gt;</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#education" class="nav-link">Education</a>
+      <a href="#terminal" class="nav-link">Terminal</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle light/dark mode">
+        <i class="fa-solid fa-moon" id="themeIcon"></i>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero container" id="home">
+      <div class="hero-content" data-aos="fade-up">
+        <span class="badge mono"><span class="pulse-dot"></span> Open to internships &amp; junior roles</span>
+
+        <!-- EDIT: change the role words to match your goal
+             (Full-Stack / Frontend / Network Specialist / Software Engineer) -->
+        <h1 class="hero-title">
+          BSIT Student &amp; Aspiring
+          <span class="gradient-text">Full-Stack Developer</span>
+        </h1>
+
+        <p class="hero-sub">
+          I build clean, reliable web systems and secure networks that solve real problems.
+          Currently sharpening my skills in software, databases, and cloud infrastructure through hands-on academic and personal projects.
+        </p>
+
+        <p class="typing-line mono">
+          <span class="prompt">&gt;</span> I specialize in
+          <span class="typed" id="typed"></span><span class="cursor">|</span>
+        </p>
+
+        <div class="cta-row">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fa-solid fa-rocket"></i> View Projects
+          </a>
+          <!-- EDIT: put your resume at assets/resume.pdf (or change the href) -->
+          <a href="assets/resume.pdf" class="btn btn-ghost" download="Juan-Dela-Cruz-Resume.pdf">
+            <i class="fa-solid fa-download"></i> Download Resume (PDF)
+          </a>
+        </div>
+
+        <div class="hero-socials">
+          <!-- EDIT: replace with your real profile links -->
+          <a href="https://github.com/your-username" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://linkedin.com/in/your-username" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="mailto:your.email@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="hero-visual" data-aos="zoom-in" data-aos-delay="150">
+        <div class="avatar-wrap glass">
+          <!-- EDIT: add your photo at assets/profile.jpg.
+               If the image is missing, the initials fallback is shown. -->
+          <img src="assets/profile.jpg" alt="Portrait of Juan Dela Cruz" class="avatar" id="avatarImg" />
+          <div class="avatar-fallback" id="avatarFallback">JD</div>
+        </div>
+        <div class="float-chip chip-1 glass mono"><i class="fa-solid fa-code"></i> &lt;/code&gt;</div>
+        <div class="float-chip chip-2 glass mono"><i class="fa-solid fa-database"></i> SQL</div>
+        <div class="float-chip chip-3 glass mono"><i class="fa-solid fa-network-wired"></i> TCP/IP</div>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT + TECH STACK ===================== -->
+    <section class="section container" id="about">
+      <div class="section-head" data-aos="fade-up">
+        <span class="eyebrow mono">01. about</span>
+        <h2>About Me</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text glass card" data-aos="fade-right">
+          <!-- EDIT: rewrite this bio in your own words -->
+          <p>
+            I'm a <strong>Bachelor of Science in Information Technology</strong> student from the Philippines
+            with a passion for turning complex problems into simple, working solutions. My journey started with
+            curiosity about how websites and networks work, and grew into building full systems with databases,
+            APIs, and responsive interfaces.
+          </p>
+          <p>
+            Through coursework in programming, database administration, networking, and systems analysis, I've
+            learned to break problems down, test assumptions, and document my work. I enjoy collaborating on
+            capstone and group projects, where I take on both development and troubleshooting roles.
+          </p>
+          <p>
+            Right now I'm focused on strengthening my full-stack skills, earning industry certifications,
+            and contributing to real-world projects.
+          </p>
+
+          <div class="stats">
+            <div class="stat"><span class="stat-num" data-count="12">0</span><span class="stat-label">Projects built</span></div>
+            <div class="stat"><span class="stat-num" data-count="4">0</span><span class="stat-label">Certifications</span></div>
+            <div class="stat"><span class="stat-num" data-count="3">0</span><span class="stat-label">Years of study</span></div>
+          </div>
+        </div>
+
+        <div class="stack-col" data-aos="fade-left">
+          <!-- EDIT: add/remove <li> items. Each badge's glow color is set via --c -->
+          <div class="stack-group glass card">
+            <h3 class="mono"><i class="fa-solid fa-palette"></i> Frontend</h3>
+            <ul class="badges">
+              <li style="--c:#e34f26"><i class="fa-brands fa-html5"></i> HTML5</li>
+              <li style="--c:#1572b6"><i class="fa-brands fa-css3-alt"></i> CSS3</li>
+              <li style="--c:#f7df1e"><i class="fa-brands fa-js"></i> JavaScript</li>
+              <li style="--c:#38bdf8"><i class="fa-solid fa-wind"></i> Tailwind</li>
+              <li style="--c:#61dafb"><i class="fa-brands fa-react"></i> React (learning)</li>
+            </ul>
+          </div>
+
+          <div class="stack-group glass card">
+            <h3 class="mono"><i class="fa-solid fa-server"></i> Backend &amp; Database</h3>
+            <ul class="badges">
+              <li style="--c:#777bb4"><i class="fa-brands fa-php"></i> PHP</li>
+              <li style="--c:#3776ab"><i class="fa-brands fa-python"></i> Python</li>
+              <li style="--c:#68a063"><i class="fa-brands fa-node-js"></i> Node.js</li>
+              <li style="--c:#00758f"><i class="fa-solid fa-database"></i> MySQL</li>
+              <li style="--c:#47a248"><i class="fa-solid fa-leaf"></i> MongoDB</li>
+            </ul>
+          </div>
+
+          <div class="stack-group glass card">
+            <h3 class="mono"><i class="fa-solid fa-screwdriver-wrench"></i> Networking, DevOps &amp; Tools</h3>
+            <ul class="badges">
+              <li style="--c:#1ba0d7"><i class="fa-solid fa-network-wired"></i> Cisco / Packet Tracer</li>
+              <li style="--c:#f05032"><i class="fa-brands fa-git-alt"></i> Git</li>
+              <li style="--c:#ffffff"><i class="fa-brands fa-github"></i> GitHub</li>
+              <li style="--c:#2496ed"><i class="fa-brands fa-docker"></i> Docker</li>
+              <li style="--c:#ff9900"><i class="fa-brands fa-aws"></i> AWS</li>
+              <li style="--c:#fcc624"><i class="fa-brands fa-linux"></i> Linux</li>
+              <li style="--c:#007acc"><i class="fa-solid fa-code"></i> VS Code</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section class="section container" id="projects">
+      <div class="section-head" data-aos="fade-up">
+        <span class="eyebrow mono">02. projects</span>
+        <h2>Featured Projects</h2>
+      </div>
+
+      <div class="filters" data-aos="fade-up" role="tablist" aria-label="Project filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web Dev</button>
+        <button class="filter-btn" data-filter="mobile-db">Mobile / DB</button>
+        <button class="filter-btn" data-filter="systems">Systems / Networking</button>
+      </div>
+
+      <!--
+        EDIT: HOW TO ADD A PROJECT
+        1. Copy one whole <article class="project-card ..."> block below.
+        2. Set data-category to one of: web | mobile-db | systems
+        3. Change the image src (put screenshots in assets/projects/),
+           title, summary, tech tags, Live Demo URL and GitHub URL.
+        If a screenshot is missing, a gradient placeholder shows instead.
+      -->
+      <div class="project-grid" id="projectGrid">
+        <article class="project-card glass card" data-category="web" data-aos="fade-up">
+          <div class="project-thumb">
+            <img src="assets/projects/project-1.jpg" alt="Screenshot of Enrollment Portal" loading="lazy" />
+            <i class="fa-solid fa-graduation-cap thumb-icon"></i>
+          </div>
+          <div class="project-body">
+            <h3>Student Enrollment Portal</h3>
+            <p>Role-based web system for online enrollment, class scheduling and grade viewing with admin dashboard and reports.</p>
+            <ul class="tags mono"><li>PHP</li><li>MySQL</li><li>JavaScript</li><li>Tailwind</li></ul>
+            <div class="project-links">
+              <a href="https://your-demo-link.example.com" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+              <a href="https://github.com/your-username/enrollment-portal" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card glass card" data-category="web" data-aos="fade-up" data-aos-delay="80">
+          <div class="project-thumb">
+            <img src="assets/projects/project-2.jpg" alt="Screenshot of Weather Dashboard" loading="lazy" />
+            <i class="fa-solid fa-cloud-sun thumb-icon"></i>
+          </div>
+          <div class="project-body">
+            <h3>Weather &amp; Typhoon Tracker</h3>
+            <p>Responsive dashboard consuming a public weather API with search, saved locations and 5-day forecast charts.</p>
+            <ul class="tags mono"><li>HTML</li><li>CSS</li><li>JS (ES6)</li><li>REST API</li></ul>
+            <div class="project-links">
+              <a href="https://your-demo-link.example.com" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+              <a href="https://github.com/your-username/weather-tracker" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card glass card" data-category="mobile-db" data-aos="fade-up" data-aos-delay="160">
+          <div class="project-thumb">
+            <img src="assets/projects/project-3.jpg" alt="Screenshot of Inventory App" loading="lazy" />
+            <i class="fa-solid fa-boxes-stacked thumb-icon"></i>
+          </div>
+          <div class="project-body">
+            <h3>Barangay Inventory Tracker</h3>
+            <p>Mobile-friendly inventory app with a normalized MySQL schema, stock alerts and exportable CSV reports.</p>
+            <ul class="tags mono"><li>MySQL</li><li>PHP</li><li>PWA</li><li>Bootstrap-free CSS</li></ul>
+            <div class="project-links">
+              <a href="https://your-demo-link.example.com" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+              <a href="https://github.com/your-username/inventory-tracker" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card glass card" data-category="mobile-db" data-aos="fade-up">
+          <div class="project-thumb">
+            <img src="assets/projects/project-4.jpg" alt="Screenshot of Task App" loading="lazy" />
+            <i class="fa-solid fa-mobile-screen thumb-icon"></i>
+          </div>
+          <div class="project-body">
+            <h3>Campus Task Planner</h3>
+            <p>Android-style task manager with offline storage, reminders and a MongoDB-backed sync API.</p>
+            <ul class="tags mono"><li>Node.js</li><li>MongoDB</li><li>JavaScript</li></ul>
+            <div class="project-links">
+              <a href="https://your-demo-link.example.com" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+              <a href="https://github.com/your-username/task-planner" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card glass card" data-category="systems" data-aos="fade-up" data-aos-delay="80">
+          <div class="project-thumb">
+            <img src="assets/projects/project-5.jpg" alt="Network topology diagram" loading="lazy" />
+            <i class="fa-solid fa-network-wired thumb-icon"></i>
+          </div>
+          <div class="project-body">
+            <h3>Campus Network Design</h3>
+            <p>Designed and simulated a segmented campus LAN with VLANs, inter-VLAN routing, DHCP and ACL-based security policies.</p>
+            <ul class="tags mono"><li>Cisco</li><li>Packet Tracer</li><li>VLAN</li><li>OSPF</li></ul>
+            <div class="project-links">
+              <a href="https://your-demo-link.example.com" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+              <a href="https://github.com/your-username/campus-network" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card glass card" data-category="systems" data-aos="fade-up" data-aos-delay="160">
+          <div class="project-thumb">
+            <img src="assets/projects/project-6.jpg" alt="Server monitoring dashboard" loading="lazy" />
+            <i class="fa-solid fa-shield-halved thumb-icon"></i>
+          </div>
+          <div class="project-body">
+            <h3>Home Lab Monitoring Stack</h3>
+            <p>Dockerized Linux lab with automated backups, log monitoring and uptime alerts for self-hosted services.</p>
+            <ul class="tags mono"><li>Linux</li><li>Docker</li><li>Bash</li><li>AWS</li></ul>
+            <div class="project-links">
+              <a href="https://your-demo-link.example.com" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+              <a href="https://github.com/your-username/homelab-stack" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== EDUCATION & CERTS ===================== -->
+    <section class="section container" id="education">
+      <div class="section-head" data-aos="fade-up">
+        <span class="eyebrow mono">03. education</span>
+        <h2>Academic &amp; Certifications</h2>
+      </div>
+
+      <!-- EDIT: update school name, years, achievements and certificates -->
+      <div class="timeline">
+        <div class="timeline-item" data-aos="fade-up">
+          <span class="timeline-dot"></span>
+          <div class="glass card timeline-card">
+            <span class="date mono">2023 — Present</span>
+            <h3>BS Information Technology</h3>
+            <p class="muted">Your University Name · Philippines</p>
+            <div class="progress" aria-label="Degree progress 75%">
+              <div class="progress-bar" data-progress="75"></div>
+            </div>
+            <span class="progress-label mono">Degree progress: 75%</span>
+            <ul class="achievements">
+              <li>Dean's Lister (2 semesters)</li>
+              <li>Lead developer for capstone project</li>
+              <li>Major: Web &amp; Mobile Systems Development</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="80">
+          <span class="timeline-dot"></span>
+          <div class="glass card timeline-card">
+            <span class="date mono">2025</span>
+            <h3>Cisco CCNA: Introduction to Networks</h3>
+            <p class="muted">Cisco Networking Academy</p>
+            <span class="cert-badge mono"><i class="fa-solid fa-certificate"></i> Certified</span>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="120">
+          <span class="timeline-dot"></span>
+          <div class="glass card timeline-card">
+            <span class="date mono">2025</span>
+            <h3>AWS Cloud Practitioner Essentials</h3>
+            <p class="muted">Amazon Web Services Training</p>
+            <span class="cert-badge mono"><i class="fa-solid fa-certificate"></i> Certified</span>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="160">
+          <span class="timeline-dot"></span>
+          <div class="glass card timeline-card">
+            <span class="date mono">2024</span>
+            <h3>CompTIA IT Fundamentals (ITF+)</h3>
+            <p class="muted">CompTIA</p>
+            <span class="cert-badge mono"><i class="fa-solid fa-certificate"></i> Certified</span>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+          <span class="timeline-dot"></span>
+          <div class="glass card timeline-card">
+            <span class="date mono">2024</span>
+            <h3>Google IT Support / Python for Everybody</h3>
+            <p class="muted">Coursera</p>
+            <span class="cert-badge mono"><i class="fa-solid fa-certificate"></i> Completed</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TERMINAL ===================== -->
+    <section class="section container" id="terminal">
+      <div class="section-head" data-aos="fade-up">
+        <span class="eyebrow mono">04. terminal</span>
+        <h2>Interactive Terminal</h2>
+        <p class="muted">Try typing <code class="mono">help</code> to get started.</p>
+      </div>
+
+      <div class="terminal glass" data-aos="fade-up" id="terminalBox">
+        <div class="terminal-bar">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="terminal-title mono">guest@portfolio: ~</span>
+        </div>
+        <div class="terminal-body mono" id="terminalOutput" aria-live="polite"></div>
+        <form class="terminal-input mono" id="terminalForm" autocomplete="off">
+          <label for="terminalInput" class="terminal-prompt">guest@portfolio:~$</label>
+          <input type="text" id="terminalInput" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Terminal command input" />
+        </form>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section container" id="contact">
+      <div class="section-head" data-aos="fade-up">
+        <span class="eyebrow mono">05. contact</span>
+        <h2>Let's Work Together</h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info glass card" data-aos="fade-right">
+          <h3>Get in touch</h3>
+          <p class="muted">Have an internship, project or collaboration in mind? My inbox is always open.</p>
+          <ul class="contact-list">
+            <!-- EDIT: replace with your real details -->
+            <li><i class="fa-solid fa-envelope"></i><a href="mailto:your.email@example.com">your.email@example.com</a></li>
+            <li><i class="fa-brands fa-github"></i><a href="https://github.com/your-username" target="_blank" rel="noopener">github.com/your-username</a></li>
+            <li><i class="fa-brands fa-linkedin-in"></i><a href="https://linkedin.com/in/your-username" target="_blank" rel="noopener">linkedin.com/in/your-username</a></li>
+            <li><i class="fa-solid fa-location-dot"></i><span>Philippines (UTC+8)</span></li>
+          </ul>
+        </div>
+
+        <!--
+          EDIT: HOW TO MAKE THE FORM WORK
+          Option A (easy): create a free form at https://formspree.io, then replace
+                           YOUR_FORM_ID below with the ID they give you.
+          Option B: leave action as-is. The script falls back to opening
+                    your email app with the message pre-filled (mailto).
+        -->
+        <form class="contact-form glass card" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" data-aos="fade-left" novalidate>
+          <div class="field">
+            <input type="text" id="name" name="name" placeholder=" " required />
+            <label for="name">Name</label>
+          </div>
+          <div class="field">
+            <input type="email" id="email" name="email" placeholder=" " required />
+            <label for="email">Email</label>
+          </div>
+          <div class="field">
+            <input type="text" id="subject" name="subject" placeholder=" " required />
+            <label for="subject">Subject</label>
+          </div>
+          <div class="field">
+            <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+            <label for="message">Message</label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
+          <p class="form-status mono" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="muted mono">&copy; <span id="year"></span> Juan Dela Cruz. Built with HTML, CSS &amp; JavaScript.</p>
+      <a href="#home" class="back-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
